@@ -91,3 +91,62 @@ function animateParticles() {
 }
 
 animateParticles();
+
+// ===========================
+// AUTO YOUTUBE VIDEOS
+// ===========================
+
+const latestVideos = document.getElementById("latestVideos");
+
+if (latestVideos) {
+
+    fetch("https://rss2json.com/api.json?rss_url=" +
+        encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=UC7c6NUsgZI-LsXfZOBj5qkA"))
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        latestVideos.innerHTML = "";
+
+        data.items.slice(0, 6).forEach(video => {
+
+            const videoId = video.link.split("v=")[1];
+
+            latestVideos.innerHTML += `
+                <div class="card">
+
+                    <iframe
+                        width="100%"
+                        height="200"
+                        src="https://www.youtube.com/embed/${videoId}"
+                        frameborder="0"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h3>${video.title}</h3>
+
+                    <a class="business-btn"
+                       href="${video.link}"
+                       target="_blank">
+                        ▶ Watch
+                    </a>
+
+                </div>
+            `;
+        });
+
+    })
+
+    .catch(() => {
+
+        latestVideos.innerHTML = `
+            <div class="card">
+                <h3>Couldn't load videos.</h3>
+                <p>Please check back later.</p>
+            </div>
+        `;
+
+    });
+
+}
