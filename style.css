@@ -134,3 +134,65 @@ width:100%;
 }
 
 }
+.business{
+    padding:80px 20px;
+    text-align:center;
+    background:#0d0d0d;
+}
+
+.business h2{
+    font-size:2.5rem;
+    margin-bottom:20px;
+    color:#ffffff;
+}
+
+.business p{
+    max-width:700px;
+    margin:15px auto;
+    color:#cfcfcf;
+    line-height:1.8;
+}
+
+.sponsor-grid{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:40px 0;
+}
+
+.card{
+    width:250px;
+    padding:30px;
+    border-radius:18px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 30px #8a2be2;
+}
+
+.card h3{
+    font-size:1.6rem;
+    margin-bottom:10px;
+}
+
+.business-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:16px 34px;
+    border-radius:50px;
+    background:#7b2cff;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+}
+
+.business-btn:hover{
+    background:#a855f7;
+    box-shadow:0 0 25px #a855f7;
+}
