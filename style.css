@@ -464,3 +464,18 @@ footer h2{
     z-index:-1;
     pointer-events:none;
 }
+
+.video-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.video-grid iframe{
+    width:100%;
+    aspect-ratio:16/9;
+    border:none;
+    border-radius:18px;
+    box-shadow:0 0 25px rgba(123,44,255,.4);
+}
