@@ -101,21 +101,21 @@ if (canvas) {
 
     function animate() {
 
-        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        particles.forEach(p=>{
+        particles.forEach(p => {
 
             p.x += p.speedX;
             p.y += p.speedY;
 
-            if(p.x<0) p.x=canvas.width;
-            if(p.x>canvas.width) p.x=0;
-            if(p.y<0) p.y=canvas.height;
-            if(p.y>canvas.height) p.y=0;
+            if (p.x < 0) p.x = canvas.width;
+            if (p.x > canvas.width) p.x = 0;
+            if (p.y < 0) p.y = canvas.height;
+            if (p.y > canvas.height) p.y = 0;
 
             ctx.beginPath();
-            ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
-            ctx.fillStyle="rgba(179,102,255,.8)";
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(179,102,255,.8)";
             ctx.fill();
 
         });
@@ -136,20 +136,24 @@ const latestVideos = document.getElementById("latestVideos");
 
 if (latestVideos) {
 
-fetch("https://rss2json.com/api.json?rss_url=" +
-encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=UC7c6NUsgZI-LsXfZOBj5qkA"))
+    fetch(
+        "https://rss2json.com/api.json?rss_url=" +
+        encodeURIComponent(
+            "https://www.youtube.com/feeds/videos.xml?channel_id=UC7c6NUsgZI-LsXfZOBj5qkA"
+        )
+    )
 
-.then(res => res.json())
+    .then(res => res.json())
 
-.then(data => {
+    .then(data => {
 
-latestVideos.innerHTML = "";
+        latestVideos.innerHTML = "";
 
-data.items.slice(0,6).forEach(video => {
+        data.items.slice(0, 6).forEach(video => {
 
-const id = video.link.split("v=")[1];
+            const id = video.link.split("v=")[1];
 
-latestVideos.innerHTML += `
+            latestVideos.innerHTML += `
 
 <div class="card">
 
@@ -173,13 +177,13 @@ target="_blank">
 
 `;
 
-});
+        });
 
-})
+    })
 
-.catch(() => {
+    .catch(() => {
 
-latestVideos.innerHTML = `
+        latestVideos.innerHTML = `
 
 <div class="card">
 
@@ -191,6 +195,6 @@ latestVideos.innerHTML = `
 
 `;
 
-});
+    });
 
 }
