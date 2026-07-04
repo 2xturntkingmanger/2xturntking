@@ -27,7 +27,7 @@ window.addEventListener("load", () => {
 // BUTTON HOVER
 // =========================
 
-document.querySelectorAll(".buttons a").forEach(button => {
+document.querySelectorAll(".buttons a, .hero-buttons a").forEach(button => {
 
     button.addEventListener("mouseenter", () => {
         button.style.transform = "translateY(-6px) scale(1.05)";
