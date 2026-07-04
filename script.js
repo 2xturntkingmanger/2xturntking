@@ -129,71 +129,27 @@ if (canvas) {
 }
 
 // =========================
-// LIVE YOUTUBE STATS
-// =========================
-
-const API_KEY = "AIzaSyArTsLloqv6rozRqKmMZGAwwyLZntms580";
-const CHANNEL_ID = "UC7c6NUsgZI-LsXfZOBj5qkA";
-
-async function loadStats(){
-
-    const subs = document.getElementById("subs");
-
-    if(!subs) return;
-
-    try{
-
-        const res = await fetch(
-            `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`
-        );
-
-        const data = await res.json();
-
-        const stats = data.items[0].statistics;
-
-        document.getElementById("subs").textContent =
-        Number(stats.subscriberCount).toLocaleString();
-
-        document.getElementById("videos").textContent =
-        Number(stats.videoCount).toLocaleString();
-
-        document.getElementById("views").textContent =
-        Number(stats.viewCount).toLocaleString();
-
-    }
-
-    catch(err){
-
-        console.log(err);
-
-    }
-
-}
-
-loadStats();
-
-// =========================
 // AUTO YOUTUBE VIDEOS
 // =========================
 
 const latestVideos = document.getElementById("latestVideos");
 
-if(latestVideos){
+if (latestVideos) {
 
-fetch("https://rss2json.com/api.json?rss_url="+
+fetch("https://rss2json.com/api.json?rss_url=" +
 encodeURIComponent("https://www.youtube.com/feeds/videos.xml?channel_id=UC7c6NUsgZI-LsXfZOBj5qkA"))
 
-.then(res=>res.json())
+.then(res => res.json())
 
-.then(data=>{
+.then(data => {
 
-latestVideos.innerHTML="";
+latestVideos.innerHTML = "";
 
-data.items.slice(0,6).forEach(video=>{
+data.items.slice(0,6).forEach(video => {
 
-const id=video.link.split("v=")[1];
+const id = video.link.split("v=")[1];
 
-latestVideos.innerHTML+=`
+latestVideos.innerHTML += `
 
 <div class="card">
 
@@ -204,7 +160,8 @@ allowfullscreen>
 
 <h3>${video.title}</h3>
 
-<a class="business-btn"
+<a
+class="business-btn"
 href="${video.link}"
 target="_blank">
 
@@ -220,9 +177,9 @@ target="_blank">
 
 })
 
-.catch(()=>{
+.catch(() => {
 
-latestVideos.innerHTML=`
+latestVideos.innerHTML = `
 
 <div class="card">
 
