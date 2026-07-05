@@ -190,10 +190,11 @@ width:100%;
     color:white;
     text-decoration:none;
     font-weight:700;
-    transition:.3s;
+    transition:transform .3s ease, background .3s ease, box-shadow .3s ease;
 }
 
 .business-btn:hover{
+    transform:translateY(-8px) scale(1.05);
     background:#a855f7;
     box-shadow:0 0 25px #a855f7;
 }
@@ -478,4 +479,42 @@ footer h2{
     border:none;
     border-radius:18px;
     box-shadow:0 0 25px rgba(123,44,255,.4);
+}
+
+/* ========================= */
+/* DONATE PAGE */
+/* ========================= */
+
+.donate-card{
+    max-width:700px;
+    margin:60px auto;
+    padding:40px;
+    border-radius:20px;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.12);
+    backdrop-filter:blur(10px);
+    text-align:center;
+}
+
+.donate-card h2{
+    color:#b366ff;
+    margin-bottom:20px;
+}
+
+.donate-card p{
+    color:#ddd;
+    line-height:1.8;
+}
+
+.cashapp-tag{
+    margin:25px auto;
+    display:inline-block;
+    padding:15px 30px;
+    border-radius:50px;
+    background:#7b2cff;
+    color:#fff;
+    font-size:1.2rem;
+    font-weight:700;
+    letter-spacing:1px;
+    box-shadow:0 0 20px rgba(123,44,255,.5);
 }
